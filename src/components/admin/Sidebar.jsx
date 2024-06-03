@@ -25,7 +25,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="fixed h-[calc(100vh-272px)] w-72 bg-gradient-to-r from-primary-yellow to-primary-red px-10 py-2 text-white">
+    <div className="fixed h-[calc(100vh-284px)] w-72 bg-gradient-to-r from-primary-yellow to-primary-red px-10 py-2 text-white">
       <div className="flex flex-col justify-center items-center">
         <img
           className="w-28 h-28 object-cover rounded-full"
