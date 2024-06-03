@@ -3,6 +3,16 @@ import AppLayout from "../layout/AppLayout";
 import useSignup from "../hooks/useSignup";
 
 const Signup = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleToggleShowPassword = () => {
+    setShowPassword((prevState) => !prevState);
+  };
+  const handleToggleShowConfirmPassword = () => {
+    setShowConfirmPassword((prevState) => !prevState);
+  };
+
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -18,8 +28,8 @@ const Signup = () => {
   };
   return (
     <AppLayout>
-      <main className="px-24 py-16">
-        <div className="bg-white max-w-[45rem] mx-auto px-28 py-20 rounded-lg shadow-md shadow-slate-200">
+      <main className="px-8 py-20">
+        <div className="bg-white sm:w-[100%] md:w-[70%] lg:w-[50%] mx-auto px-12 py-12 rounded-lg shadow-md shadow-slate-200">
           <h2 className="text-2xl font-bold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary-red to-primary-yellow">
             Create Your Account!
           </h2>
@@ -62,7 +72,7 @@ const Signup = () => {
                 required
               />
             </div>
-            <div className="mb-7">
+            <div className="mb-7 relative">
               <label
                 htmlFor="password"
                 className="block font-semibold text-lg text-slate-800 mb-3"
@@ -70,19 +80,25 @@ const Signup = () => {
                 Password
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 id="password"
                 value={inputs.password}
                 onChange={(evt) =>
                   setInputs({ ...inputs, password: evt.target.value })
                 }
-                className="bg-[#f2f2f2] px-3 py-5 w-full text-md text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
+                className="bg-[#f2f2f2] px-3 py-5 w-full text-lg font-semibold text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
                 placeholder="........"
                 required
               />
+              <span
+                className="absolute right-4 bottom-4 text-base font-semibold bg-slate-800 px-3 py-0.5 rounded-md text-white cursor-pointer"
+                onClick={handleToggleShowPassword}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </span>
             </div>
-            <div className="mb-7">
+            <div className="mb-7 relative">
               <label
                 htmlFor="confirmPassword"
                 className="block font-semibold text-lg text-slate-800 mb-3"
@@ -90,17 +106,23 @@ const Signup = () => {
                 Confirm Password
               </label>
               <input
-                type="password"
+                type={showConfirmPassword ? "text" : "password"}
                 name="confirmPassword"
                 id="confirmPassword"
                 value={inputs.passwordConfirm}
                 onChange={(evt) =>
                   setInputs({ ...inputs, passwordConfirm: evt.target.value })
                 }
-                className="bg-[#f2f2f2] px-3 py-5 w-full text-md text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
+                className="bg-[#f2f2f2] px-3 py-5 w-full text-lg font-semibold text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
                 placeholder="........"
                 required
               />
+              <span
+                className="absolute right-4 bottom-4 text-base font-semibold bg-slate-800 px-3 py-0.5 rounded-md text-white cursor-pointer"
+                onClick={handleToggleShowConfirmPassword}
+              >
+                {showConfirmPassword ? "Hide" : "Show"}
+              </span>
             </div>
             <div>
               <button

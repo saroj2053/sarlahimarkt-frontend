@@ -13,11 +13,18 @@ const Login = () => {
     const credentials = { email, password };
     await login(credentials);
   };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleToggleShowPassword = () => {
+    setShowPassword((prevState) => !prevState);
+  };
+
   return (
     <AppLayout>
-      <main className="px-24 py-16">
-        <div className="bg-white max-w-[45rem] mx-auto px-28 py-20 rounded-lg shadow-md shadow-slate-200">
-          <h2 className="text-2xl font-bold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary-red to-primary-yellow">
+      <main className="px-8 py-20">
+        <div className="bg-white sm:w-[100%] md:w-[60%] lg:w-[50%]  mx-auto px-12 py-12 rounded-lg shadow-md shadow-slate-200">
+          <h2 className="text-[calc(1.25rem+0.4vw)] font-bold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary-red to-primary-yellow">
             Log into your account
           </h2>
           <form onSubmit={handleSubmit}>
@@ -37,7 +44,7 @@ const Login = () => {
                 placeholder="example@email.com"
               />
             </div>
-            <div className="mb-7">
+            <div className="mb-7 relative">
               <label
                 htmlFor="password"
                 className="block font-semibold text-lg text-slate-800 mb-3"
@@ -45,15 +52,21 @@ const Login = () => {
                 Password
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 id="password"
                 value={password}
                 onChange={(evt) => setPassword(evt.target.value)}
-                className="bg-[#f2f2f2] px-3 py-5 w-full text-md text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
+                className="bg-[#f2f2f2] px-3 py-5 w-full text-base font-semibold text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
                 placeholder="........"
                 required
               />
+              <span
+                className="absolute right-4 bottom-4 text-base font-semibold bg-slate-800 px-3 py-0.5 rounded-md text-white cursor-pointer"
+                onClick={handleToggleShowPassword}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </span>
             </div>
             <div>
               <button
