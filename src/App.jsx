@@ -26,7 +26,7 @@ function App() {
   console.log("userDetails", authUser?.user);
   return (
     <>
-      <BrowserRouter basename="/sarlahimarkt">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
