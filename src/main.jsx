@@ -12,12 +12,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <App />
 
       <Toaster
-        position="
-        bottom-right"
         toastOptions={{
           style: {
-            background: "linear-gradient(to right, #fbbf24, #ef4444)",
-            color: "white",
+            fontSize: "1rem",
+            fontWeight: "bold",
+            color: "rgba(0, 0, 0, 0.8)",
           },
         }}
       />

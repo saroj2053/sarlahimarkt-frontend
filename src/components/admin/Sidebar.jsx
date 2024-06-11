@@ -43,7 +43,8 @@ const Sidebar = () => {
           className="uppercase cursor-pointer flex justify-between items-center transition-all duration-500"
           onClick={toggleProductOptionsVisibility}
         >
-          Products {showProductOptions ? <FaChevronUp /> : <FaChevronDown />}
+          Manage Products
+          {showProductOptions ? <FaChevronUp /> : <FaChevronDown />}
         </li>
 
         {showProductOptions && (
@@ -67,7 +68,7 @@ const Sidebar = () => {
           className="uppercase cursor-pointer flex justify-between items-center transition-all duration-500"
           onClick={toggleUserOptionsVisibility}
         >
-          Users {showUserOptions ? <FaChevronUp /> : <FaChevronDown />}
+          Manage Users {showUserOptions ? <FaChevronUp /> : <FaChevronDown />}
         </li>
 
         {showUserOptions && (
@@ -85,7 +86,7 @@ const Sidebar = () => {
           className="uppercase cursor-pointer flex justify-between items-center transition-all duration-500"
           onClick={toggleOrderOptionsVisibility}
         >
-          Orders {showOrderOptions ? <FaChevronUp /> : <FaChevronDown />}
+          Manage Orders {showOrderOptions ? <FaChevronUp /> : <FaChevronDown />}
         </li>
         {showOrderOptions && (
           <>

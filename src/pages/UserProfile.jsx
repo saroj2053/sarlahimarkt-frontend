@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import AppLayout from "../layout/AppLayout";
-import { MdOutlineSettings, MdStarOutline } from "react-icons/md";
-import { BiSolidPackage } from "react-icons/bi";
-import { FaRegAddressCard } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/user/userSlice";
 import usePasswordUpdate from "../hooks/usePasswordUpdate";
 import useProfileUpdate from "../hooks/useProfileUpdate";
+import ProfileLayout from "../components/ProfileSidebar";
+import ProfileSidebar from "../components/ProfileSidebar";
 
 const UserProfile = () => {
   const authUser = useSelector(selectUser);
@@ -67,36 +66,9 @@ const UserProfile = () => {
 
   return (
     <AppLayout>
-      <div className="max-w-[70%] mx-auto flex shadow-md m-32">
-        <div className="w-[30%] bg-gradient-to-r from-primary-yellow to-primary-red px-5 py-20 ">
-          <ul className="flex flex-col gap-8 text-white font-semibold">
-            <li className="uppercase text-base flex gap-2 items-center cursor-pointer transition-all duraton-[400ms] hover:translate-x-3 ease-in-out">
-              <span className="text-3xl flex">
-                <MdOutlineSettings />
-              </span>
-              Settings
-            </li>
-            <li className="uppercase text-base flex gap-2 items-center cursor-pointer transition-all duraton-[400ms] hover:translate-x-3 ease-in-out">
-              <span className="text-3xl flex">
-                <BiSolidPackage />
-              </span>
-              My Orders
-            </li>
-            <li className="uppercase text-base flex gap-2 items-center cursor-pointer transition-all duraton-[400ms] hover:translate-x-3 ease-in-out">
-              <span className="text-3xl">
-                <MdStarOutline />
-              </span>
-              My Reviews
-            </li>
-            <li className="uppercase text-base flex gap-2 items-center cursor-pointer transition-all duraton-[400ms] hover:translate-x-3 ease-in-out">
-              <span className="text-3xl">
-                <FaRegAddressCard />
-              </span>
-              Billing Information
-            </li>
-          </ul>
-        </div>
-        <div className="w-[70%] bg-white py-20">
+      <div className="flex shadow-md m-32">
+        <ProfileSidebar />
+        <div className="flex-1 bg-white py-20">
           <div className="max-w-[70%] mx-auto pb-12">
             <h2 className="text-2xl font-bold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
               Your Account Settings
@@ -194,7 +166,7 @@ const UserProfile = () => {
                   disabled={loading}
                   onClick={profileUpdateHandler}
                 >
-                  {loading ? "Saving data.." : "Save Settings"}
+                  {loading ? "Updating..." : "Update Settings"}
                 </button>
               </div>
             </form>
@@ -279,7 +251,7 @@ const UserProfile = () => {
                   className="border-none outline-none bg-gradient-to-t from-primary-red to-primary-yellow text-white font-semibold text-lg px-8 py-2 rounded-full uppercase transition-all duration-[350ms] hover:-translate-y-1 hover:shadow-md hover:shadow-slate-400"
                   onClick={passwordChangeHandler}
                 >
-                  Save Password
+                  Change Password
                 </button>
               </div>
             </form>

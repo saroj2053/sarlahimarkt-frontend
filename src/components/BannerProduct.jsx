@@ -2,11 +2,19 @@ import React, { useEffect, useState } from "react";
 import bannerImage1 from "../assets/banner/banner1.jpg";
 import bannerImage2 from "../assets/banner/banner2.jpg";
 import bannerImage3 from "../assets/banner/banner3.jpg";
+import bannerImage4 from "../assets/banner/slider-image3.png";
+import bannerImage5 from "../assets/banner/slider-image4.jpg";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
 const BannerProduct = () => {
   const [activeImage, setActiveImage] = useState(0);
-  const images = [bannerImage1, bannerImage2, bannerImage3];
+  const images = [
+    bannerImage1,
+    bannerImage2,
+    bannerImage3,
+    bannerImage4,
+    bannerImage5,
+  ];
 
   const nextImage = () => {
     if (images.length - 1 > activeImage) {
@@ -61,7 +69,7 @@ const BannerProduct = () => {
                 key={imageUrl}
                 style={{ transform: `translateX(-${activeImage * 100}%)` }}
               >
-                <img src={imageUrl} className="w-full h-full" />
+                <img src={imageUrl} className="w-full h-full object-cover" />
               </div>
             );
           })}

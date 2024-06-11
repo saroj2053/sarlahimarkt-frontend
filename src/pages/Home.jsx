@@ -21,21 +21,19 @@ const Home = () => {
   return (
     <AppLayout>
       <div className="min-h-[calc(100vh-256px)] max-w-[90%] mx-auto bg-[#f7f7f7]">
+        <BannerProduct />
+        <div className="mt-12 mb-8 text-center text-2xl uppercase font-bold tracking-wider text-slate-700">
+          Our Latest Products
+        </div>
         {loading ? (
           <Loader text="products" />
         ) : (
-          <>
-            <BannerProduct />
-            <div className="mt-16 mb-8 text-center text-2xl uppercase font-bold text-slate-800 tracking-wider">
-              Our Latest Products
-            </div>
-            <div className="flex flex-wrap gap-9 justify-center items-center mb-12">
-              {products.length !== 0 &&
-                products.map((product, idx) => (
-                  <ProductCard key={product._id} product={product} />
-                ))}
-            </div>
-          </>
+          <div className="flex flex-wrap gap-9 justify-center items-center mb-12">
+            {products.length !== 0 &&
+              products.map((product, idx) => (
+                <ProductCard key={product._id} product={product} />
+              ))}
+          </div>
         )}
       </div>
     </AppLayout>

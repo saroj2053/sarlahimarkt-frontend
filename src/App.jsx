@@ -18,6 +18,7 @@ import SearchResults from "./pages/SearchResults";
 import AdminEditUser from "./pages/admin/AdminEditUser";
 import AdminEditProduct from "./pages/admin/AdminEditProduct";
 import Wishlist from "./pages/Wishlist";
+import UserAddress from "./pages/UserAddress";
 
 function App() {
   getBearerToken();
@@ -41,6 +42,14 @@ function App() {
             element={
               <Protected>
                 <UserProfile />
+              </Protected>
+            }
+          />
+          <Route
+            path="/user-address"
+            element={
+              <Protected>
+                <UserAddress />
               </Protected>
             }
           />
