@@ -5,6 +5,7 @@ import {
   selectTotalItemsInCart,
 } from "../features/cart/cartSlice";
 import { getCalculatedShippingCharge } from "../helpers/helperFunctions";
+import { PiCheckCircleFill } from "react-icons/pi";
 
 const CartStats = () => {
   const totalProductsCost = useSelector(selectTotalAmount);
@@ -20,6 +21,16 @@ const CartStats = () => {
   return (
     <>
       <div className="flex flex-col gap-5 px-4 py-6 bg-white">
+        {totalProductsCost + GSTAmount >= 50 ? (
+          <p className="text-green-600 mb-6 flex items-center gap-1 text-xs">
+            <PiCheckCircleFill color="green" size={20} />
+            Your order qualifies for FREE Delivery
+          </p>
+        ) : (
+          <p className="text-red-600 mb-6 flex items-center gap-1 text-xs">
+            Add more items to qualify for FREE Delivery
+          </p>
+        )}
         <div className="flex justify-between border-b pb-2">
           <p className="w-[60%]">Product Cost:</p>
           <p
