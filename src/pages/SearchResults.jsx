@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AppLayout from "../layout/AppLayout";
 import { useParams } from "react-router-dom";
 import useProductSearch from "../hooks/useProductSearch";
@@ -28,18 +28,16 @@ const SearchResults = () => {
   return (
     <AppLayout>
       <div className="max-w-[90%] mx-auto mt-32 min-h-[calc(100vh-300px)]">
-        <h2 className="text-2xl font-bold text-slate-800">
+        <h2 className="text-xl font-medium  uppercase tracking-wide bg-clip-text text-transparent bg-gradient-to-t from-primary-yellow to-primary-red flex items-center gap-2">
           Search Results for:{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
-            {params?.searchKeyword}
-          </span>
+          <span className="rounded-sm lowercase ">{params?.searchKeyword}</span>
         </h2>
         {loading ? (
           <Loader text={`${params?.searchKeyword} products`} />
         ) : (
           <div className="flex flex-wrap gap-9 justify-center items-center my-12">
             {searchProducts.map((product, idx) => (
-              <ProductCard key={product._id} product={product} />
+              <ProductCard key={product._id + idx} product={product} />
             ))}
           </div>
         )}

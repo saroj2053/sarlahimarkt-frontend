@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AppLayout from "../layout/AppLayout";
 import useFetchProducts from "../hooks/useFetchProducts";
 import ProductCard from "../components/ProductCard";
@@ -8,8 +8,6 @@ const Home = () => {
   const { loading, fetchProducts } = useFetchProducts();
 
   const [products, setProducts] = useState([]);
-
-  const loadingTest = true;
 
   const loadingProductsList = new Array(8).fill(null);
 
@@ -25,14 +23,17 @@ const Home = () => {
     <AppLayout>
       <div className="min-h-[calc(100vh-256px)] max-w-[90%] mx-auto bg-[#f7f7f7]">
         <BannerProduct />
-        <div className="mt-12 mb-8 text-center text-2xl uppercase font-bold tracking-wider text-slate-700">
+        <div className="mb-8 text-center text-2xl uppercase font-semibold tracking-wider  bg-clip-text text-transparent bg-gradient-to-b from-primary-yellow to-primary-red">
           Our Latest Products
         </div>
         <div className="flex flex-wrap gap-9 justify-center items-center mb-12">
           {loading ? (
             loadingProductsList.map((product, index) => {
               return (
-                <div className="xl:w-[22%] md:w-[45%] lg:w-[28%] sm:w-[98%] min-h-[450px] flex flex-col justify-center  rounded-md shadow-md p-5 bg-white relative ">
+                <div
+                  key={index}
+                  className="xl:w-[22%] md:w-[45%] lg:w-[28%] sm:w-[98%] min-h-[450px] flex flex-col justify-center  rounded-md shadow-md p-5 bg-white relative "
+                >
                   <div className="absolute top-4 left-0 bg-slate-200 w-12 h-6 animate-pulse clip-custom"></div>
                   <div className="bg-white h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center">
                     <div className="bg-slate-200 w-32 h-32 animate-pulse"></div>
@@ -55,7 +56,7 @@ const Home = () => {
             <div className="flex flex-wrap gap-9 justify-center items-center mb-12">
               {products.length !== 0 &&
                 products.map((product, idx) => (
-                  <ProductCard key={product._id} product={product} />
+                  <ProductCard key={product._id + idx} product={product} />
                 ))}
             </div>
           )}

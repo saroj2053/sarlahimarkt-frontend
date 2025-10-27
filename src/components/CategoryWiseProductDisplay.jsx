@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useFetchProductByCategory from "../hooks/useFetchProductByCategory";
 import Loader from "./Loader";
 import { NavLink } from "react-router-dom";
@@ -19,7 +19,7 @@ const CategoryWiseProductDisplay = ({ product, heading }) => {
       );
 
       const relatedProducts = retrievedCategoryWiseProducts.filter(
-        (item, index) => item._id !== product._id
+        (item) => item._id !== product._id
       );
       setCategoryProducts(relatedProducts);
     }
@@ -28,7 +28,7 @@ const CategoryWiseProductDisplay = ({ product, heading }) => {
   }, []);
   return (
     <div className="my-8">
-      <h2 className="text-2xl font-bold uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-b from-primary-yellow to-primary-red">
+      <h2 className="text-xl font-medium uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-b from-primary-yellow to-primary-red">
         {heading}
       </h2>
       {loading ? (
@@ -36,7 +36,7 @@ const CategoryWiseProductDisplay = ({ product, heading }) => {
       ) : (
         <div>
           {categoryProducts.length === 0 ? (
-            <div className="flex justify-center items-center bg-slate-200 my-4 py-8 text-slate-700 uppercase font-bold tracking-widest">
+            <div className="flex justify-center items-center bg-slate-200 my-4 py-8 text-slate-700 uppercase font-medium tracking-widest">
               No related products found
             </div>
           ) : (
@@ -62,17 +62,17 @@ const CategoryWiseProductDisplay = ({ product, heading }) => {
                     </span>
                   </div>
                   <div className="p-4 grid gap-3">
-                    <h2 className="font-medium text-base md:text-lg text-ellipsis line-clamp-1 text-black">
+                    <h2 className="font-medium md:text-base text-ellipsis line-clamp-1 text-slate-800">
                       {product?.productName}
                     </h2>
-                    <p className="lowercase text-slate-500">
+                    <p className="uppercase text-slate-500 text-xs">
                       {product?.category}
                     </p>
                     <div className="flex flex-row items-center gap-3">
-                      <p className="text-primary-red font-bold text-xl">
+                      <p className="text-primary-red font-medium text-lg">
                         € {product?.sellingPrice}
                       </p>
-                      <p className="text-slate-500 line-through">
+                      <p className="text-slate-500 line-through text-sm">
                         RRP: € {product?.price}
                       </p>
                     </div>

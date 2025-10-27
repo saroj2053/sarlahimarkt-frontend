@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import bannerImage1 from "../assets/banner/banner1.jpg";
 import bannerImage2 from "../assets/banner/banner2.jpg";
 import bannerImage3 from "../assets/banner/banner3.jpg";
@@ -65,8 +65,8 @@ const BannerProduct = () => {
           {images.map((imageUrl, idx) => {
             return (
               <div
-                className="w-full h-full min-w-full min-h-full transition-all"
-                key={imageUrl}
+                className="w-full h-[85%] min-w-full min-h-[85%] transition-all"
+                key={imageUrl + idx}
                 style={{ transform: `translateX(-${activeImage * 100}%)` }}
               >
                 <img src={imageUrl} className="w-full h-full object-cover" />

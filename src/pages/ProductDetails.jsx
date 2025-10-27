@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchProductDetails from "../hooks/useFetchProductDetails";
 import AppLayout from "../layout/AppLayout";
@@ -90,7 +90,7 @@ const ProductDetails = () => {
         {loading ? (
           <Loader text="Product Details" />
         ) : (
-          <div className="flex gap-8 items-start mt-32">
+          <div className="flex gap-8 items-start mt-26 pt-4 pb-8 border-b border-slate-300">
             <div>
               <div className="h-[500px] flex flex-col lg:flex-row-reverse gap-4">
                 <div className="h-[500px] w-[500px]  bg-slate-200 relative p-2">
@@ -117,7 +117,7 @@ const ProductDetails = () => {
                         return (
                           <div
                             className="h-20 w-20 bg-slate-200 rounded p-1"
-                            key={imgURL}
+                            key={imgURL + index}
                           >
                             <img
                               src={imgURL}
@@ -139,19 +139,19 @@ const ProductDetails = () => {
             {loading === false && (
               <div>
                 {product && (
-                  <span className="bg-gradient-to-r from-primary-yellow to-primary-red px-4 rounded-full text-white">
+                  <span className="bg-orange-300 text-orange-600 px-4 py-1 rounded-sm text-white text-sm ">
                     {product?.brand}
                   </span>
                 )}
-                <h2 className="text-2xl font-bold text-justify mt-1">
+                <h2 className="text-lg font-semibold text-justify mt-2">
                   {product?.productName}
                 </h2>
-                <span className="text-slate-500 text-sm">
+                <span className="text-slate-500 text-xs uppercase block mt-2">
                   {product?.category}
                 </span>
 
                 <div className="my-4 flex items-end gap-4">
-                  <p className="text-2xl text-primary-red">
+                  <p className="text-lg text-primary-red">
                     -
                     {calculateDiscountPercent(
                       product?.price,
@@ -159,38 +159,38 @@ const ProductDetails = () => {
                     )}
                     %
                   </p>
-                  <p className="text-4xl font-bold text-slate-800">
+                  <p className="text-2xl font-semibold text-slate-800">
                     €{product?.sellingPrice}
                   </p>
                 </div>
                 <p className="text-sm text-slate-700 my-4">
-                  RRP: <span className=" line-through">€{product?.price}</span>
+                  RRP: <span className="line-through">€{product?.price}</span>
                 </p>
 
-                <p className="text-slate-700 font-semibold my-3">
+                <p className="text-slate-700 font-medium my-3">
                   Status :
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red font-bold border border-slate-200 px-4 py-0.5 ml-2 rounded-full">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red font-normal border border-slate-200 px-4 py-0.5 ml-2 rounded-full">
                     In Stock
                   </span>
                 </p>
 
                 <div className="flex gap-8 items-center my-2">
-                  <h2 className="text-slate-700 font-semibold">
+                  <h2 className="text-slate-700 font-medium">
                     Select Quantity
                   </h2>
                   <div className="my-4 flex items-center">
                     <button
-                      className="border-2 border-primary-yellow px-4 rounded-l-full py-0.5 text-2xl font-semibold text-slate-700"
+                      className="border-2 border-primary-yellow px-4 rounded-l-full py-0.5 text-xl font-medium text-slate-700"
                       onClick={decQuantity}
                     >
                       -
                     </button>
 
-                    <p className="w-[80px] text-center text-slate-700 font-semibold text-xl py-1 outline-none border-2 border-x-0 border-y-primary-yellow">
+                    <p className="w-[80px] text-center text-slate-700 font-medium text-lg py-0.5 outline-none border-2 border-x-0 border-y-primary-yellow">
                       {cartCount}
                     </p>
                     <button
-                      className="border-2 border-primary-yellow px-4 py-0.5 rounded-r-full text-2xl font-semibold text-slate-700"
+                      className="border-2 border-primary-yellow px-4 py-0.5 rounded-r-full text-xl font-medium text-slate-700"
                       onClick={incQuantity}
                     >
                       +
@@ -200,13 +200,13 @@ const ProductDetails = () => {
 
                 <div className="flex gap-8 mb-4">
                   <button
-                    className="border-2 border-primary-yellow px-4 py-1 rounded-full text-black font-bold hover:bg-primary-yellow transition-all duration-500 ease-in-out"
+                    className="border-2 border-primary-yellow bg-yellow-100 px-4 py-1 rounded-full text-black font-medium hover:bg-primary-yellow transition-all duration-500 ease-in-out"
                     onClick={() => handleAddToWishlist(product._id)}
                   >
                     Add to Wishlist
                   </button>
                   <button
-                    className="bg-gradient-to-r from-primary-yellow to-primary-red text-white font-bold px-4 py-1 rounded-full"
+                    className="bg-gradient-to-r from-primary-yellow to-primary-red text-white font-normal px-4 py-1 rounded-full"
                     onClick={() => handleAddToCart(product)}
                   >
                     Add to Cart
@@ -222,7 +222,7 @@ const ProductDetails = () => {
                       (spec, idx) => (
                         <li
                           key={idx}
-                          className="list-item text-slate-700 font-semibold text-sm text-justify mt-4 marker:text-primary-yellow "
+                          className="list-item text-slate-700 font-normal text-sm text-justify mt-4 marker:text-primary-yellow "
                         >
                           {spec}
                         </li>

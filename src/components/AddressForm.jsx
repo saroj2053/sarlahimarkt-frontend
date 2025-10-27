@@ -1,13 +1,8 @@
-import React from "react";
-
 const AddressForm = () => {
   return (
     <form className="my-8">
       <div className="flex flex-col w-full my-6">
-        <label
-          htmlFor="firstName"
-          className="mb-2 text-slate-700 font-bold text-md"
-        >
+        <label htmlFor="firstName" className="mb-2 text-slate-700 text-sm">
           First Name:
         </label>
         <input
@@ -17,10 +12,7 @@ const AddressForm = () => {
         />
       </div>
       <div className="flex flex-col w-full my-6">
-        <label
-          htmlFor="lastName"
-          className="mb-2 text-slate-700 font-bold text-md"
-        >
+        <label htmlFor="lastName" className="mb-2 text-slate-700 text-sm">
           Last Name:
         </label>
         <input
@@ -30,10 +22,7 @@ const AddressForm = () => {
         />
       </div>
       <div className="flex flex-col w-full my-6">
-        <label
-          htmlFor="company"
-          className="mb-2 text-slate-700 font-bold text-md"
-        >
+        <label htmlFor="company" className="mb-2 text-slate-700 text-sm">
           Company:
         </label>
         <input
@@ -43,10 +32,7 @@ const AddressForm = () => {
         />
       </div>
       <div className="flex flex-col w-full my-6">
-        <label
-          htmlFor="addressOne"
-          className="mb-2 text-slate-700 font-bold text-md"
-        >
+        <label htmlFor="addressOne" className="mb-2 text-slate-700 text-sm">
           Address 1:
         </label>
         <input
@@ -56,10 +42,7 @@ const AddressForm = () => {
         />
       </div>
       <div className="flex flex-col w-full my-6">
-        <label
-          htmlFor="addressTwo"
-          className="mb-2 text-slate-700 font-bold text-md"
-        >
+        <label htmlFor="addressTwo" className="mb-2 text-slate-700 text-sm">
           Address 2:
         </label>
         <input
@@ -69,7 +52,7 @@ const AddressForm = () => {
         />
       </div>
       <div className="flex flex-col w-full my-6">
-        <label htmlFor="city" className="mb-2 text-slate-700 font-bold text-md">
+        <label htmlFor="city" className="mb-2 text-slate-700 text-sm">
           City:
         </label>
         <input
@@ -79,10 +62,7 @@ const AddressForm = () => {
         />
       </div>
       <div className="flex flex-col w-full my-6">
-        <label
-          htmlFor="country"
-          className="mb-2 text-slate-700 font-bold text-md"
-        >
+        <label htmlFor="country" className="mb-2 text-slate-700 text-sm">
           Country:
         </label>
         <input
@@ -92,10 +72,7 @@ const AddressForm = () => {
         />
       </div>
       <div className="flex flex-col w-full my-6">
-        <label
-          htmlFor="postCode"
-          className="mb-2 text-slate-700 font-bold text-md"
-        >
+        <label htmlFor="postCode" className="mb-2 text-slate-700 text-sm">
           Postal/Zip Code:
         </label>
         <input
@@ -105,10 +82,7 @@ const AddressForm = () => {
         />
       </div>
       <div className="flex flex-col w-full my-6">
-        <label
-          htmlFor="phone"
-          className="mb-2 text-slate-700 font-bold text-md"
-        >
+        <label htmlFor="phone" className="mb-2 text-slate-700 text-sm">
           Phone:
         </label>
         <input
@@ -119,7 +93,7 @@ const AddressForm = () => {
       </div>
 
       <div>
-        <button className="text-xl font-semibold border-2 px-4 py-1 rounded-md bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red transition-all duration-500 ease-in-out hover:scale-110">
+        <button className="  bg-orange-200 text-orange-600 px-4 py-1 rounded-md transition-all duration-500 ease-in-out hover:bg-orange-600 hover:text-white">
           Add address
         </button>
       </div>

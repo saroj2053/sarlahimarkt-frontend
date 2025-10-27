@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import AppLayout from "../layout/AppLayout";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/user/userSlice";
 import usePasswordUpdate from "../hooks/usePasswordUpdate";
 import useProfileUpdate from "../hooks/useProfileUpdate";
-import ProfileLayout from "../components/ProfileSidebar";
 import ProfileSidebar from "../components/ProfileSidebar";
 
 const UserProfile = () => {
@@ -66,16 +65,16 @@ const UserProfile = () => {
 
   return (
     <AppLayout>
-      <div className="flex shadow-md m-32">
+      <div className="flex shadow-md p-10">
         <ProfileSidebar />
         <div className="flex-1 bg-white py-20">
           <div className="max-w-[70%] mx-auto pb-12">
-            <h2 className="text-2xl font-bold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
+            <h2 className="text-2xl font-semibold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
               Your Account Settings
             </h2>
             <div className="flex justify-center items-center mb-5">
               <img
-                className="w-32 h-32 rounded-full object-cover"
+                className="w-24 h-24 rounded-full object-cover"
                 src={authUser?.user.avatar}
                 alt="avatar"
               />
@@ -84,7 +83,7 @@ const UserProfile = () => {
               <div className="mb-6">
                 <label
                   htmlFor="name"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Name
                 </label>
@@ -94,13 +93,13 @@ const UserProfile = () => {
                   value={name}
                   onChange={(evt) => setName(evt.target.value)}
                   placeholder={authUser?.user.name}
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-lg text-slate-800 font-semibold rounded-md placeholder:italic placeholder:text-slate-400 placeholder:text-lg border-none outline-none"
+                  className="bg-[#f2f2f2] px-3 py-3 w-full text-slate-800 rounded-md  placeholder:text-slate-400 placeholder:text-sm border-none outline-none"
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="email"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Email Address
                 </label>
@@ -109,7 +108,7 @@ const UserProfile = () => {
                   id="email"
                   value={email}
                   onChange={(evt) => setEmail(evt.target.value)}
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-lg text-slate-800 font-semibold rounded-md placeholder:italic placeholder:text-slate-400 placeholder:text-lg border-none outline-none"
+                  className="bg-[#f2f2f2] px-3 py-3 w-full text-slate-800 rounded-md  placeholder:text-slate-400  border-none outline-none"
                   placeholder={authUser?.user.email}
                 />
               </div>
@@ -137,7 +136,7 @@ const UserProfile = () => {
                           />
                         </svg>
                         <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                          <span className="font-semibold">Click to upload</span>{" "}
+                          <span className="font-medium">Click to upload</span>{" "}
                           or drag and drop
                         </p>
                       </div>
@@ -162,7 +161,7 @@ const UserProfile = () => {
               </div>
               <div className="flex justify-end mt-7">
                 <button
-                  className="border-none outline-none bg-gradient-to-t from-primary-red to-primary-yellow text-white font-semibold text-lg px-8 py-2 rounded-full uppercase transition-all duration-[350ms] hover:-translate-y-1 hover:shadow-md hover:shadow-slate-400"
+                  className="border-none outline-none bg-gradient-to-t from-primary-red to-primary-yellow text-white  px-6 py-2 rounded-full uppercase transition-all duration-[350ms] hover:scale-95 hover:shadow-sm hover:shadow-slate-400"
                   disabled={loading}
                   onClick={profileUpdateHandler}
                 >
@@ -173,14 +172,14 @@ const UserProfile = () => {
           </div>
           <hr />
           <div className="max-w-[70%] mx-auto pt-12">
-            <h2 className="text-2xl font-bold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
+            <h2 className="text-xl font-semibold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-t from-primary-yellow to-primary-red">
               Password Change
             </h2>
             <form onSubmit={passwordChangeHandler}>
               <div className="mb-6">
                 <label
                   htmlFor="oldPassword"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Old Password
                 </label>
@@ -195,7 +194,7 @@ const UserProfile = () => {
                       oldPassword: evt.target.value,
                     })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
+                  className="bg-[#f2f2f2] px-3 py-3 w-full  text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
                   placeholder="........"
                   required
                 />
@@ -203,7 +202,7 @@ const UserProfile = () => {
               <div className="mb-6">
                 <label
                   htmlFor="newPassword"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   New Password
                 </label>
@@ -218,7 +217,7 @@ const UserProfile = () => {
                       newPassword: evt.target.value,
                     })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
+                  className="bg-[#f2f2f2] px-3 py-3 w-full  text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
                   placeholder="........"
                   required
                 />
@@ -226,7 +225,7 @@ const UserProfile = () => {
               <div className="mb-6">
                 <label
                   htmlFor="password"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Confirm Password
                 </label>
@@ -241,14 +240,14 @@ const UserProfile = () => {
                       confirmPassword: evt.target.value,
                     })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
+                  className="bg-[#f2f2f2] px-3 py-3 w-full  text-slate-800 rounded-md placeholder:text-slate-400 placeholder:text-4xl outline-none border-none"
                   placeholder="........"
                   required
                 />
               </div>
               <div className="flex justify-end mt-12">
                 <button
-                  className="border-none outline-none bg-gradient-to-t from-primary-red to-primary-yellow text-white font-semibold text-lg px-8 py-2 rounded-full uppercase transition-all duration-[350ms] hover:-translate-y-1 hover:shadow-md hover:shadow-slate-400"
+                  className="border-none outline-none bg-gradient-to-t from-primary-red to-primary-yellow text-white  px-6 py-2 rounded-full uppercase transition-all duration-[350ms] hover:scale-95 hover:shadow-sm hover:shadow-slate-400"
                   onClick={passwordChangeHandler}
                 >
                   Change Password

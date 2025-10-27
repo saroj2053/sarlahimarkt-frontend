@@ -8,7 +8,7 @@ export default {
         "primary-yellow": "#ff9c01",
       },
       fontFamily: {
-        nunito: ["Nunito", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
     },
   },

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AppLayout from "../layout/AppLayout";
 import ProfileSidebar from "../components/ProfileSidebar";
 import { IoPulse } from "react-icons/io5";
 import useFetchAddress from "../hooks/useFetchAddress";
 import Loader from "../components/Loader";
 import AddressForm from "../components/AddressForm";
+import { PiAddressBookFill } from "react-icons/pi";
 
 const UserAddress = () => {
   const { loading, fetchAddress } = useFetchAddress();
@@ -26,18 +27,18 @@ const UserAddress = () => {
 
   return (
     <AppLayout>
-      <div className="flex shadow-md m-32">
+      <div className="flex shadow-md p-10">
         <ProfileSidebar />
         <div className="flex-1 bg-white py-20">
           <div className="max-w-[70%] mx-auto pb-12 flex flex-col items-center justify-center">
-            <h2 className="text-2xl font-bold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-t from-primary-yellow to-primary-red">
+            <h2 className="text-2xl font-semibold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-t from-primary-yellow to-primary-red">
               Addresses Setup
             </h2>
             <div
               className="cursor-pointer"
               onClick={toggleAddressFormVisibility}
             >
-              <h1 className="flex gap-1 justify-center items-center border-2 w-64 rounded-full px-4 py-1 text-lg text-slate-700 font-bold">
+              <h1 className="flex gap-1 justify-center items-center border-2 w-64 rounded-full px-4 py-1  text-slate-800 font-medium">
                 <span className="flex">
                   <IoPulse />
                 </span>
@@ -45,8 +46,8 @@ const UserAddress = () => {
               </h1>
             </div>
             {showAddressForm && (
-              <div className="w-4/5 border-2 px-16 py-8 rounded-md mt-8 ">
-                <h2 className="text-4xl font-bold text-slate-700">
+              <div className="w-4/5 px-16 py-8 rounded-md mt-8 ">
+                <h2 className="text-xl font-semibold text-slate-700 uppercase">
                   Add a new address
                 </h2>
                 <AddressForm />
@@ -56,11 +57,12 @@ const UserAddress = () => {
             {loading ? (
               <Loader text="Addresses" />
             ) : (
-              <div className="w-[70%] mx-auto min-h-24 mt-8 p-12 border-2 flex rounded-lg">
+              <div className="w-[70%] mx-auto min-h-24 mt-8 p-12 flex justify-center items-center rounded-lg">
                 {address?.length === 0 ? (
-                  <span className="text-xl font-semibold text-slate-700 text-center">
+                  <h1 className=" text-slate-700 text-center flex flex-col justify-center items-center font-medium gap-4">
+                    <PiAddressBookFill size={40} />
                     No address found
-                  </span>
+                  </h1>
                 ) : (
                   <div className="flex flex-col text-slate-700 font-semibold">
                     {address.map((addr, index) => (
