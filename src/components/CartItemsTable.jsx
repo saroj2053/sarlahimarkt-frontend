@@ -28,6 +28,17 @@ const CartItemsTable = () => {
 
   return (
     <>
+      {items.length === 0 && (
+        <p className="text-sm">
+          Your cart is empty. Continue Shopping on the{" "}
+          <a
+            className="hover:underline text-orange-500 transition-all duration-300 ease-in-out"
+            href="/"
+          >
+            SarlahiMarkt.app
+          </a>
+        </p>
+      )}
       {items.map((item, index) => (
         <div
           key={item.productName + index}
