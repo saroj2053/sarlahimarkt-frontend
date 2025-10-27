@@ -66,7 +66,7 @@ const Header = () => {
                   onClick={() => navigate("/cart")}
                 >
                   <HiOutlineShoppingBag size={30} />
-                  <p className="absolute bg-primary-red w-6 h-6 flex justify-center items-center  px-0.5 text-sm rounded-full -top-2 -right-2">
+                  <p className="absolute bg-orange-200 text-orange-600 w-5 h-5 flex justify-center items-center text-xs rounded-full -top-1.5 -right-1.5">
                     <span>{items?.length}</span>
                   </p>
                 </li>
