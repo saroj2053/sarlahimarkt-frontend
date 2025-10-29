@@ -26,7 +26,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="h-full fixed w-72 bg-slate-800 px-6 py-2 text-white">
+    <div className="h-full fixed w-72 bg-slate-900 px-6 py-2 text-white">
       <div className="flex flex-col justify-center items-center">
         <img
           className="w-16 h-16 object-cover rounded-full"
@@ -41,7 +41,7 @@ const Sidebar = () => {
       </div>
       <ul className="flex flex-col gap-4 font-medium mt-8">
         <li
-          className="p-2 uppercase cursor-pointer flex justify-between items-center hover:bg-slate-300 hover:text-slate-800 transition-all duration-500"
+          className="p-2 uppercase cursor-pointer flex justify-between items-center hover:bg-slate-100 hover:text-slate-800 transition-all duration-500"
           onClick={toggleProductOptionsVisibility}
         >
           Manage Products
@@ -82,7 +82,7 @@ const Sidebar = () => {
         )}
 
         <li
-          className="p-2 uppercase cursor-pointer flex justify-between items-center transition-all duration-500"
+          className="p-2 hover:bg-slate-100 hover:text-slate-800 uppercase cursor-pointer flex justify-between items-center transition-all duration-500"
           onClick={toggleUserOptionsVisibility}
         >
           Manage Users {showUserOptions ? <FaChevronUp /> : <FaChevronDown />}
@@ -108,7 +108,7 @@ const Sidebar = () => {
         )}
 
         <li
-          className="p-2 uppercase cursor-pointer flex justify-between items-center transition-all duration-500"
+          className="p-2 hover:bg-slate-100 hover:text-slate-800 uppercase cursor-pointer flex justify-between items-center transition-all duration-500"
           onClick={toggleOrderOptionsVisibility}
         >
           Manage Orders {showOrderOptions ? <FaChevronUp /> : <FaChevronDown />}

@@ -33,7 +33,7 @@ const AdminEditUser = () => {
 
   return (
     <AdminLayout>
-      <div className="max-w-[90%] mx-auto">
+      <div className="max-w-[100%] mx-auto">
         <DashboardLayout>
           <h2 className="text-2xl font-medium text-center uppercase bg-clip-text text-transparent bg-gradient-to-b from-primary-yellow to-primary-red tracking-wide">
             Edit User {params.id}

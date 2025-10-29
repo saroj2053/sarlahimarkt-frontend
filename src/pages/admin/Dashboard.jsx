@@ -4,9 +4,9 @@ import AdminLayout from "../../layout/admin/AdminLayout";
 const Dashboard = () => {
   return (
     <AdminLayout>
-      <div className="max-w-[90%] mx-auto">
+      <div className="max-w-[100%] mx-auto">
         <DashboardLayout>
-          <h2 className="uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-b from-primary-yellow to-primary-red text-2xl font-bold">
+          <h2 className="uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-b from-primary-yellow to-primary-red text-2xl font-medium mb-6">
             Dashboard
           </h2>
           <div className="flex flex-wrap gap-7">

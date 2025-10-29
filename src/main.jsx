@@ -13,10 +13,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
       <Toaster
         toastOptions={{
+          duration: 4000,
           style: {
-            fontSize: "1rem",
-            fontWeight: "bold",
-            color: "rgba(0, 0, 0, 0.8)",
+            fontSize: "14px",
+            fontWeight: "500",
+            background: "oklch(95.4% 0.038 75.164)",
+            color: "oklch(64.6% 0.222 41.116)",
           },
         }}
       />
