@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import AppLayout from "../../layout/AppLayout";
+import { useState } from "react";
 import DashboardLayout from "../../layout/admin/DashboardLayout";
 import { productCategory } from "../../helpers/productCategory";
 import { MdDelete } from "react-icons/md";
 import useProductCreate from "../../hooks/useProductCreate";
+import AdminLayout from "../../layout/admin/AdminLayout";
 
 const AddProduct = () => {
   const [productData, setProductData] = useState({
@@ -16,7 +16,7 @@ const AddProduct = () => {
     sellingPrice: "",
   });
 
-  const { loading, createProduct } = useProductCreate();
+  const { createProduct } = useProductCreate();
 
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [filePreviews, setFilePreviews] = useState([]);
@@ -57,18 +57,18 @@ const AddProduct = () => {
   };
 
   return (
-    <AppLayout>
-      <div className="max-w-[90%] mx-auto">
+    <AdminLayout>
+      <div className="max-w-[100%] mx-auto">
         <DashboardLayout>
           <div className="w-[60%] mx-auto bg-white px-10 py-8">
-            <h2 className="text-2xl font-bold uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
+            <h2 className="text-2xl font-medium uppercase mb-10 tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
               Create new product
             </h2>
             <form onSubmit={handleProductCreation}>
               <div className="mb-6">
                 <label
                   htmlFor="productName"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-slate-800 mb-2"
                 >
                   Name
                 </label>
@@ -82,13 +82,13 @@ const AddProduct = () => {
                       productName: evt.target.value,
                     })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-800 rounded-md  outline-none border-none"
+                  className="bg-[#f2f2f2] p-3 w-full text-slate-800 rounded-md  outline-none border-none"
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="productBrand"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-slate-800 mb-2"
                 >
                   Brand
                 </label>
@@ -99,13 +99,13 @@ const AddProduct = () => {
                   onChange={(evt) =>
                     setProductData({ ...productData, brand: evt.target.value })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-800 rounded-md outline-none border-none"
+                  className="bg-[#f2f2f2] p-3 w-full text-slate-800 rounded-md outline-none border-none"
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="productDesc"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-slate-800 mb-2"
                 >
                   Description
                 </label>
@@ -120,13 +120,13 @@ const AddProduct = () => {
                     })
                   }
                   rows={3}
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-800 rounded-md outline-none border-none"
+                  className=" bg-[#f2f2f2] p-3 w-full text-slate-800 rounded-md outline-none border-none"
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="productCategory"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-slate-800 mb-2"
                 >
                   Category
                 </label>
@@ -139,12 +139,9 @@ const AddProduct = () => {
                       category: evt.target.value,
                     })
                   }
-                  className="bg-[#f2f2f2] w-full text-md px-3 py-3 text-slate-700 rounded-md outline-none"
+                  className="bg-[#f2f2f2] w-full text-md p-3 text-slate-700 rounded-md outline-none"
                 >
-                  <option
-                    value=""
-                    className="text-slate-700 font-medium text-lg"
-                  >
+                  <option value="" className="text-slate-700 font-medium">
                     Select the product category
                   </option>
                   {productCategory.map((prd, idx) => {
@@ -152,7 +149,7 @@ const AddProduct = () => {
                       <option
                         value={prd.value}
                         key={prd.value + idx}
-                        className="text-slate-700 font-medium text-lg"
+                        className="text-slate-700 font-medium"
                       >
                         {prd.label}
                       </option>
@@ -161,10 +158,7 @@ const AddProduct = () => {
                 </select>
               </div>
               <div className="mb-3">
-                <label
-                  htmlFor="productImg"
-                  className="font-semibold text-lg text-slate-800"
-                >
+                <label htmlFor="productImg" className="text-slate-800">
                   Product Image
                 </label>
               </div>
@@ -190,7 +184,7 @@ const AddProduct = () => {
                       />
                     </svg>
                     <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                      <span className="font-semibold">Click to upload</span> or
+                      <span className="font-medium">Click to upload</span> or
                       drag and drop
                     </p>
                   </div>
@@ -225,10 +219,7 @@ const AddProduct = () => {
               </div>
 
               <div className="mb-6">
-                <label
-                  htmlFor="stock"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
-                >
+                <label htmlFor="stock" className="block text-slate-800 mb-2">
                   Stock
                 </label>
                 <input
@@ -240,14 +231,11 @@ const AddProduct = () => {
                   }
                   min={1}
                   max={9999}
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-800 rounded-md outline-none border-none"
+                  className="bg-[#f2f2f2] p-3 w-full text-slate-800 rounded-md outline-none border-none"
                 />
               </div>
               <div className="mb-6">
-                <label
-                  htmlFor="price"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
-                >
+                <label htmlFor="price" className="block text-slate-800 mb-2">
                   Price
                 </label>
                 <input
@@ -257,13 +245,13 @@ const AddProduct = () => {
                   onChange={(evt) =>
                     setProductData({ ...productData, price: evt.target.value })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-800 rounded-md outline-none border-none"
+                  className="bg-[#f2f2f2] p-3 w-full text-slate-800 rounded-md outline-none border-none"
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="sellingPrice"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-slate-800 mb-2"
                 >
                   Selling Price
                 </label>
@@ -277,12 +265,12 @@ const AddProduct = () => {
                       sellingPrice: evt.target.value,
                     })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-800 rounded-md outline-none border-none"
+                  className="bg-[#f2f2f2] p-3 w-full text-slate-800 rounded-md outline-none border-none"
                 />
               </div>
               <div className="flex justify-end mt-12">
                 <button
-                  className="border-none outline-none bg-gradient-to-t from-primary-red to-primary-yellow text-white font-semibold text-lg px-8 py-2 rounded-full uppercase transition-all duration-[350ms] hover:-translate-y-1 hover:shadow-md hover:shadow-slate-400"
+                  className="border-none outline-none bg-gradient-to-t from-primary-red to-primary-yellow text-white font-medium  px-8 py-2 rounded-full uppercase transition-all duration-[350ms] hover:-translate-y-0.5 hover:shadow-sm hover:shadow-slate-300"
                   onClick={handleProductCreation}
                 >
                   Add Product
@@ -292,7 +280,7 @@ const AddProduct = () => {
           </div>
         </DashboardLayout>
       </div>
-    </AppLayout>
+    </AdminLayout>
   );
 };
 

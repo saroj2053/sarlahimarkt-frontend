@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import AppLayout from "../../layout/AppLayout";
+import { useState } from "react";
 import DashboardLayout from "../../layout/admin/DashboardLayout";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { productCategory } from "../../helpers/productCategory";
 import useProductUpdate from "../../hooks/useProductUpdate";
 import toast from "react-hot-toast";
+import AdminLayout from "../../layout/admin/AdminLayout";
 
 const AdminEditProduct = () => {
   const params = useParams();
   const location = useLocation();
   const product = location.state;
-  console.log(product);
+
   const navigate = useNavigate();
 
   const { loading, updateProduct } = useProductUpdate();
@@ -42,18 +42,18 @@ const AdminEditProduct = () => {
   };
 
   return (
-    <AppLayout>
-      <div className="max-w-[90%] mx-auto">
+    <AdminLayout>
+      <div className="max-w-[100%] mx-auto">
         <DashboardLayout>
-          <h2 className="text-3xl font-bold text-center uppercase bg-clip-text text-transparent bg-gradient-to-b from-primary-yellow to-primary-red tracking-wide">
+          <h2 className="text-2xl text-center uppercase bg-clip-text text-transparent bg-gradient-to-b from-primary-yellow to-primary-red tracking-wide">
             Edit Product {params.id}
           </h2>
-          <div className="max-w-[50%] mx-auto my-8">
+          <div className="max-w-[60%] mx-auto my-8 bg-white p-6 shadow-sm rounded-md">
             <form onSubmit={productUpdateHandler}>
               <div className="mb-6">
                 <label
                   htmlFor="productName"
-                  className="block font-semibold text-lg text-slate-700 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Name
                 </label>
@@ -67,13 +67,13 @@ const AdminEditProduct = () => {
                       productName: evt.target.value,
                     })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-800 rounded-md  outline-none border-none"
+                  className="bg-[#f2f2f2] p-3 text-sm w-full text-slate-800 rounded-md  outline-none border-none"
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="productBrand"
-                  className="block font-semibold text-lg text-slate-700 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Brand
                 </label>
@@ -84,13 +84,13 @@ const AdminEditProduct = () => {
                   onChange={(evt) =>
                     setFormData({ ...formData, brand: evt.target.value })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-700 rounded-md outline-none border-none"
+                  className="bg-[#f2f2f2] text-sm p-3 w-full text-slate-700 rounded-md outline-none border-none"
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="productDesc"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Description
                 </label>
@@ -105,13 +105,13 @@ const AdminEditProduct = () => {
                     })
                   }
                   rows={10}
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-700 rounded-md outline-none border-none"
+                  className="bg-[#f2f2f2] text-sm p-3 w-full text-slate-700 rounded-md outline-none border-none"
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="productCategory"
-                  className="block font-semibold text-lg text-slate-800 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Category
                 </label>
@@ -121,12 +121,9 @@ const AdminEditProduct = () => {
                   onChange={(evt) =>
                     setFormData({ ...formData, category: evt.target.value })
                   }
-                  className="bg-[#f2f2f2] w-full text-md px-3 py-3 text-slate-700 rounded-md outline-none"
+                  className="bg-[#f2f2f2] w-full text-sm p-3 text-slate-800 rounded-md outline-none"
                 >
-                  <option
-                    value=""
-                    className="text-slate-700 font-medium text-lg"
-                  >
+                  <option value="" className="text-slate-700">
                     Select the product category
                   </option>
                   {productCategory.map((prd, idx) => {
@@ -134,7 +131,7 @@ const AdminEditProduct = () => {
                       <option
                         value={prd.value}
                         key={prd.value + idx}
-                        className="text-slate-700 font-medium text-lg"
+                        className="text-slate-700"
                       >
                         {prd.label}
                       </option>
@@ -145,7 +142,7 @@ const AdminEditProduct = () => {
               <div className="mb-6">
                 <label
                   htmlFor="stock"
-                  className="block font-semibold text-lg text-slate-700 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Stock
                 </label>
@@ -158,13 +155,13 @@ const AdminEditProduct = () => {
                   }
                   min={1}
                   max={9999}
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-700 rounded-md outline-none border-none"
+                  className="bg-[#f2f2f2] p-3 text-sm w-full text-slate-800 rounded-md outline-none border-none"
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="price"
-                  className="block font-semibold text-lg text-slate-700 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Price
                 </label>
@@ -175,13 +172,13 @@ const AdminEditProduct = () => {
                   onChange={(evt) =>
                     setFormData({ ...formData, price: evt.target.value })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-700 rounded-md outline-none border-none"
+                  className="bg-[#f2f2f2] p-3 text-sm w-full text-slate-800 rounded-md outline-none border-none"
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="sellingPrice"
-                  className="block font-semibold text-lg text-slate-700 mb-2"
+                  className="block text-sm text-slate-800 mb-2"
                 >
                   Selling Price
                 </label>
@@ -192,22 +189,22 @@ const AdminEditProduct = () => {
                   onChange={(evt) =>
                     setFormData({ sellingPrice: evt.target.value })
                   }
-                  className="bg-[#f2f2f2] px-3 py-3 w-full text-md text-slate-700 rounded-md outline-none border-none"
+                  className="bg-[#f2f2f2] p-3 text-sm w-full text-slate-800 rounded-md outline-none border-none"
                 />
               </div>
               <div className="flex justify-end mt-12">
                 <button
-                  className="border-none outline-none bg-gradient-to-t from-primary-red to-primary-yellow text-white font-semibold text-lg px-8 py-2 rounded-full uppercase transition-all duration-[350ms] hover:-translate-y-1 hover:shadow-md hover:shadow-slate-400"
+                  className="border-none outline-none bg-gradient-to-t from-primary-red to-primary-yellow text-white font-medium px-8 py-2 rounded-full uppercase transition-all duration-[350ms] hover:-translate-y-0.5 hover:shadow-sm hover:shadow-slate-400"
                   onClick={productUpdateHandler}
                 >
-                  Save Product
+                  {loading ? "Saving Product..." : "Save Product"}
                 </button>
               </div>
             </form>
           </div>
         </DashboardLayout>
       </div>
-    </AppLayout>
+    </AdminLayout>
   );
 };
 

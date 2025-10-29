@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import PropTypes from "prop-types";
 
 const AppLayout = ({ children }) => {
   return (
@@ -10,10 +9,6 @@ const AppLayout = ({ children }) => {
       <Footer />
     </>
   );
-};
-
-AppLayout.propTypes = {
-  children: PropTypes.node,
 };
 
 export default AppLayout;

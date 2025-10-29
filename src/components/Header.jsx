@@ -2,7 +2,6 @@ import { FaSignOutAlt, FaSignInAlt } from "react-icons/fa";
 import { PiUserCirclePlusBold } from "react-icons/pi";
 
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import { MdDashboard } from "react-icons/md";
 import companyLogo from "../assets/company-logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -17,6 +16,7 @@ const Header = () => {
   const isLoginSelected = location.pathname.startsWith("/login");
   const isSignupSelected = location.pathname.startsWith("/signup");
   const isWishlistSelected = location.pathname.startsWith("/wishlist");
+  const isDashboardSelected = location.pathname.startsWith("/admin-dashboard");
 
   const authUser = useSelector(selectUser);
 
@@ -52,13 +52,18 @@ const Header = () => {
               <ul className="flex gap-6 items-center">
                 {authUser?.user.role === "admin" && (
                   <div
-                    className="flex flex-col items-center justify-center text-base font-semibold text-slate-100 cursor-pointer hover:text-slate-400"
+                    className="flex flex-col items-center justify-center font-medium text-slate-100 cursor-pointer hover:text-slate-400"
                     onClick={() => navigate("/admin-dashboard")}
                   >
-                    <li className="text-xl">
-                      <MdDashboard />
-                    </li>
-                    <p>Dashboard</p>
+                    <span
+                      className={`${
+                        isDashboardSelected
+                          ? "text-orange-300"
+                          : " text-slate-50"
+                      }`}
+                    >
+                      Dashboard
+                    </span>
                   </div>
                 )}
                 <li

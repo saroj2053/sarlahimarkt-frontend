@@ -1,10 +1,9 @@
-import React from "react";
-import AppLayout from "../../layout/AppLayout";
 import DashboardLayout from "../../layout/admin/DashboardLayout";
+import AdminLayout from "../../layout/admin/AdminLayout";
 
 const Dashboard = () => {
   return (
-    <AppLayout>
+    <AdminLayout>
       <div className="max-w-[90%] mx-auto">
         <DashboardLayout>
           <h2 className="uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-b from-primary-yellow to-primary-red text-2xl font-bold">
@@ -119,7 +118,7 @@ const Dashboard = () => {
           </div>
         </DashboardLayout>
       </div>
-    </AppLayout>
+    </AdminLayout>
   );
 };
 
