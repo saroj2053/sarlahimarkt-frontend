@@ -39,24 +39,24 @@ const Header = () => {
               onClick={() => navigate("/")}
             >
               <img
-                className="w-10 h-10 cursor-pointer"
+                className="w-8 h-8 cursor-pointer"
                 src={companyLogo}
                 alt="sarlahimarkt company"
               />
-              <h2 className="text-2xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
+              <h2 className="text-xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
                 SarlahiMarkt
               </h2>
             </div>
             <SearchContainer />
             <div>
               <ul className="flex gap-6 items-center">
-                {authUser?.user.role === "admin" && (
+                {authUser?.user?.role === "admin" && (
                   <div
-                    className="flex flex-col items-center justify-center font-medium text-slate-100 cursor-pointer hover:text-slate-400"
+                    className="flex flex-col items-center justify-center text-sm font-medium text-slate-100 cursor-pointer hover:text-slate-400"
                     onClick={() => navigate("/admin-dashboard")}
                   >
                     <span
-                      className={`${
+                      className={`text-sm ${
                         isDashboardSelected
                           ? "text-orange-300"
                           : " text-slate-50"
@@ -79,7 +79,7 @@ const Header = () => {
                 {authUser ? (
                   <>
                     <div
-                      className="flex flex-col items-center justify-center font-medium text-slate-100 cursor-pointer hover:text-slate-400"
+                      className="flex flex-col text-sm items-center justify-center font-medium text-slate-100 cursor-pointer hover:text-slate-400"
                       onClick={() => navigate("/wishlist")}
                     >
                       <span
@@ -93,7 +93,7 @@ const Header = () => {
                       </span>
                     </div>
                     <li
-                      className="w-12 h-12 cursor-pointer text-white flex"
+                      className="w-10 h-10 cursor-pointer text-white flex"
                       onClick={() => navigate("/user-profile")}
                     >
                       <img
@@ -103,7 +103,7 @@ const Header = () => {
                       />
                     </li>
                     <li
-                      className="text-slate-50 flex items-center gap-1 cursor-pointer hover:text-slate-400"
+                      className="text-slate-50 text-sm flex items-center gap-1 cursor-pointer hover:text-slate-400"
                       onClick={logoutHandler}
                     >
                       <span>
@@ -115,7 +115,7 @@ const Header = () => {
                 ) : (
                   <>
                     <li
-                      className={`text-lg  px-4 cursor-pointer flex gap-1 items-center ${
+                      className={`text-sm  px-4 cursor-pointer flex gap-1 items-center ${
                         isLoginSelected ? "text-orange-300" : " text-slate-50"
                       }`}
                       onClick={() => navigate("/login")}
@@ -126,7 +126,7 @@ const Header = () => {
                       Login
                     </li>
                     <li
-                      className={`text-lg  cursor-pointer flex gap-1 items-center ${
+                      className={`text-sm  cursor-pointer flex gap-1 items-center ${
                         isSignupSelected ? "text-orange-300" : "text-slate-50"
                       }`}
                       onClick={() => navigate("/signup")}

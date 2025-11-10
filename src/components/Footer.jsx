@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="w-full bg-slate-800 py-4 z-20">
       <div className="max-w-[90%] py-4 mx-auto flex justify-between items-center ">
         <div className="lg:w-[33%] text-center sm:my-4">
-          <h2 className="text-2xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
+          <h2 className="text-xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary-yellow to-primary-red">
             SarlahiMarkt
           </h2>
           <p className="text-slate-300 text-sm font-semibold">
@@ -15,7 +15,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="w-14 h-14 ">
+        <div className="w-12 h-12">
           <img src={companyLogo} alt="" />
         </div>
         <div className="flex flex-col">
