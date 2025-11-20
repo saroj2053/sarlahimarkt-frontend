@@ -1,14 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getCharactersToLength } from "../helpers/helperFunctions";
 import { FaTrash } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { removeFromCart, updateItemQty } from "../features/cart/cartSlice";
 
-const CartItemsTable = () => {
+const CartItemsTable = ({ items }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.cart);
-  console.log(items);
 
   const incQty = (item) => {
     dispatch(updateItemQty({ _id: item._id, qty: item.qty + 1 }));

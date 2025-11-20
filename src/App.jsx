@@ -19,6 +19,7 @@ import AdminEditUser from "./pages/admin/AdminEditUser";
 import AdminEditProduct from "./pages/admin/AdminEditProduct";
 import Wishlist from "./pages/Wishlist";
 import UserAddress from "./pages/UserAddress";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 function App() {
   getBearerToken();
@@ -82,6 +83,8 @@ function App() {
             path="/admin-dashboard/add-new-product"
             element={<AddProduct />}
           />
+
+          <Route path="/success" element={<PaymentSuccess />} />
 
           {/* ################### */}
 
