@@ -20,6 +20,7 @@ import AdminEditProduct from "./pages/admin/AdminEditProduct";
 import Wishlist from "./pages/Wishlist";
 import UserAddress from "./pages/UserAddress";
 import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentCancel from "./pages/PaymentCancel";
 
 function App() {
   getBearerToken();
@@ -85,6 +86,7 @@ function App() {
           />
 
           <Route path="/success" element={<PaymentSuccess />} />
+          <Route path="/cancel" element={<PaymentCancel />} />
 
           {/* ################### */}
 
